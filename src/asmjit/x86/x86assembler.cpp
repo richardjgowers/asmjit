@@ -3800,8 +3800,8 @@ EmitModSib:
     else {
       EMIT_BYTE(x86EncodeMod(0, opReg, 5));
 
-      if (is32Bit()) {
 EmitModSib_LabelRip_X86:
+      if (is32Bit()) {
         if (ASMJIT_UNLIKELY(_code->_relocations.willGrow(&_code->_baseHeap) != kErrorOk))
           goto NoHeapMemory;
 
@@ -3918,7 +3918,7 @@ EmitModVSib:
     }
     // ==========|> [LABEL|RIP + INDEX + DISP32].
     else {
-      if (is32Bit()) {
+      if (1) {
         EMIT_BYTE(x86EncodeMod(0, opReg, 4));
         EMIT_BYTE(x86EncodeSib(rmRel->as<X86Mem>().getShift(), rxReg, 5));
         goto EmitModSib_LabelRip_X86;
